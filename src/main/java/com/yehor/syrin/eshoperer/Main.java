@@ -3,7 +3,6 @@ package com.yehor.syrin.eshoperer;
 import com.yehor.syrin.eshoperer.api.games.impl.EuGameFetcher;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
