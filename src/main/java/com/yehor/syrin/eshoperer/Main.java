@@ -16,6 +16,6 @@ public class Main {
         params.put("q", "*");
         params.put("rows", "2");
         euGameFetcher.setParams(params);
-        System.out.println(euGameFetcher.fetchGame());
+        euGameFetcher.fetchGame();
     }
 }

@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -29,8 +30,9 @@ public abstract class GamesFetcher {
     protected JSONObject doRequest(String url, HashMap<String, String> params) throws IOException, InterruptedException {
         HttpClient httpClient = HttpClient.newHttpClient();
         StringBuilder finalUrl = new StringBuilder(url);
-        for (String param : params.keySet()) {
-            finalUrl.append(param).append("=").append(URLEncoder.encode(params.get(param), StandardCharsets.UTF_8)).append("&");
+        for (Map.Entry<String, String> param : params.entrySet()) {
+            finalUrl.append(param.getKey()).append("=")
+                    .append(URLEncoder.encode(param.getValue(), StandardCharsets.UTF_8)).append("&");
         }
         URI uri = URI.create(finalUrl.toString());
         HttpRequest request = HttpRequest.newBuilder(uri).build();
