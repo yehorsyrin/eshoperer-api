@@ -1,4 +1,4 @@
-package com.yehor.syrin.eshoperer.api.model;
+package com.yehor.syrin.eshoperer.api.model.game;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,9 +19,8 @@ public class EuGame extends Game{
    private String type;
    private String img;
    private String description;
-   private List<String> nsuid = new ArrayList<>();
    private List<String> languageAvailability = new ArrayList<>();
-   private String title;
    private int popularity;
+   private List<String> gameCategory;
    private String rawJson;
 }
