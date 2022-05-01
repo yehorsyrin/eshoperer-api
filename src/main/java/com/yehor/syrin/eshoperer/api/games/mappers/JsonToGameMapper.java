@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 
 
-public interface JsonToGameMapper<T extends Game> {
+public interface JsonToGameMapper {
 
-    T mapValues(JSONObject jsonGame);
+    Game mapValues(JSONObject jsonGame);
 }
