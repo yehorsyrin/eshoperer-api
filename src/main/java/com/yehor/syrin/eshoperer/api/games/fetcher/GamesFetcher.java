@@ -13,7 +13,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public abstract class GamesFetcher<T extends JsonToGameMapper> extends Fetcher {
+public abstract class GamesFetcher extends Fetcher {
 
     private boolean saveFullJson = false;
 
@@ -28,6 +28,6 @@ public abstract class GamesFetcher<T extends JsonToGameMapper> extends Fetcher {
         return arrayList;
     }
 
-    public abstract List<Game> fetchGame(T mapper) throws IOException, InterruptedException;
+    public abstract List<Game> fetchGame(JsonToGameMapper mapper) throws IOException, InterruptedException;
 
 }

@@ -28,18 +28,17 @@ public class GamesService {
     public List<List<Game>> fetchAllGames() throws IOException, InterruptedException {
         List<List<Game>> result = new ArrayList<>();
         for (GamesFetcher fetcher : fetchers) {
-            List list = fetcher.fetchGame();
-            System.out.println(fetcher.getClass().toString()+ " fetched "+list.size());
+            List<Game> list = fetcher.fetchGame();
             result.add(list);
         }
         return result;
     }
 
-    public HashMap<String, List<Game>> getAllMappedGames(GamesMapper mapper) throws IOException, InterruptedException {
+    public Map<String, List<Game>> getAllMappedGames(GamesMapper mapper) throws IOException, InterruptedException {
         return mapper.mapGames(fetchAllGames());
     }
 
-    public HashMap<String, List<Game>> getAllMappedGames() throws IOException, InterruptedException {
+    public Map<String, List<Game>> getAllMappedGames() throws IOException, InterruptedException {
         return getAllMappedGames(this::defaultMap);
     }
 

@@ -16,20 +16,18 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class EuGameFetcher extends GamesFetcher {
 
     private String url = "http://search.nintendo-europe.com/en/select?";
     private HashMap<String, String> params;
 
-
-    {
-        HashMap<String, String> params = new HashMap<>();
-        params.put("fq", "type:GAME AND system_type:nintendoswitch* AND product_code_txt:*");
-        params.put("q", "*");
-        params.put("rows", "7000");
-        this.params = params;
+    public EuGameFetcher() {
+        this.params = new HashMap<>();
+        this.params.put("fq", "type:GAME AND system_type:nintendoswitch* AND product_code_txt:*");
+        this.params.put("q", "*");
+        this.params.put("rows", "7000");
     }
+
 
     @Override
     public List<Game> fetchGame() throws IOException, InterruptedException {
