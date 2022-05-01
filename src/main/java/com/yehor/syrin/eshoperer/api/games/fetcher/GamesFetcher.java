@@ -1,6 +1,7 @@
-package com.yehor.syrin.eshoperer.api.games;
+package com.yehor.syrin.eshoperer.api.games.fetcher;
 
 import com.yehor.syrin.eshoperer.api.Fetcher;
+import com.yehor.syrin.eshoperer.api.games.mappers.JsonToGameMapper;
 import com.yehor.syrin.eshoperer.api.model.game.Game;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,5 +1,7 @@
 package com.yehor.syrin.eshoperer.api;
 
+import com.goebl.david.Request;
+import com.goebl.david.Webb;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -30,18 +32,13 @@ public abstract class Fetcher {
         return new JSONObject(response.body());
     }
 
-    protected JSONObject doPostRequest(String url, String body, HashMap<String, String> headers) throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest.Builder builder = HttpRequest.newBuilder();
+    protected JSONObject doPostRequest(String url, String body, HashMap<String, String> headers) {
+        Webb webb = Webb.create();
+        Request req = webb.post(url)
+                .body(body);
         for (Map.Entry<String, String> param : headers.entrySet()) {
-            builder.header(param.getKey(), param.getValue());
+            req.header(param.getKey(), param.getValue());
         }
-        HttpRequest request = builder
-                .uri(URI.create(url))
-                .POST(HttpRequest.BodyPublishers.ofString(body))
-                .build();
-
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        return new JSONObject(response.body());
+        return req.ensureSuccess().asJsonObject().getBody();
     }
 }
