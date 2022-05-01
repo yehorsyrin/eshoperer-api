@@ -5,6 +5,7 @@ import com.yehor.syrin.eshoperer.api.model.game.EuGame;
 import com.yehor.syrin.eshoperer.api.model.game.Game;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,14 +15,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 public class EuGameFetcher extends GamesFetcher {
 
-    private String url = "http://search.nintendo-europe.com/en/select?";
     private HashMap<String, String> params;
 
     public EuGameFetcher() {
+        this.url = "http://search.nintendo-europe.com/en/select?";
         this.params = new HashMap<>();
         this.params.put("fq", "type:GAME AND system_type:nintendoswitch* AND product_code_txt:*");
         this.params.put("q", "*");

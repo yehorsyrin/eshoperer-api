@@ -15,6 +15,7 @@ import java.util.List;
 @Setter
 public abstract class GamesFetcher extends Fetcher {
 
+    protected String url;
     private boolean saveFullJson = false;
 
     public abstract List<Game> fetchGame() throws IOException, InterruptedException;

@@ -8,7 +8,10 @@ import com.yehor.syrin.eshoperer.api.model.game.Game;
 import lombok.Data;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Data
 public class GamesService {
