@@ -25,7 +25,7 @@ public class UsGameFetcher extends GamesFetcher {
     }
 
     @Override
-    public List<Game> fetchGame() throws IOException, InterruptedException {
+    public List<Game> fetchGame() throws IOException {
         return fetchGame(jsonGame -> {
             UsGame game = new UsGame();
             if (jsonGame.has("nsuid")) {

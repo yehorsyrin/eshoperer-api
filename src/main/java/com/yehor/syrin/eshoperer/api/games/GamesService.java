@@ -40,7 +40,7 @@ public class GamesService {
     }
 
     public HashMap<String, List<Game>> getAllMappedGames() throws IOException, InterruptedException {
-        return getAllMappedGames(gamesLists -> defaultMap(gamesLists));
+        return getAllMappedGames(this::defaultMap);
     }
 
     private HashMap<String, List<Game>> defaultMap(List<List<Game>> gamesLists) {

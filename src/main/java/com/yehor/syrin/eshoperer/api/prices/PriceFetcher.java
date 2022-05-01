@@ -17,11 +17,7 @@ public class PriceFetcher extends Fetcher {
 
     public void fillPrices(List<Game> games) {
         StringBuilder ids = new StringBuilder();
-        int amount = 0;
         for (int i = 0; i < games.size(); i++) {
-            if (amount == 999) {
-
-            }
             Game game = games.get(i);
             ids.append(game.getNsuid());
             if (i != games.size() - 1) {
